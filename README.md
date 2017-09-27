@@ -5,6 +5,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm install` to download node modules.
 
+## Angular Lessons
+
+These lessons assume basic knowledge of JavaScript, TypeScript syntax and HTML and CSS. If you don't know TypeScript, please visit [TypeScript repo](https://github.com/piyushpatel2005/TypeScript).
+
+**Table of Contents**
+
+1. [Using angular-cli](lessons/angular-cli.md)
+2. [Using Angular Material](lessons/angular-material.md)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
