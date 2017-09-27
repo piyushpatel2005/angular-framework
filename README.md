@@ -13,6 +13,7 @@ These lessons assume basic knowledge of JavaScript, TypeScript syntax and HTML a
 
 1. [Using angular-cli](lessons/angular-cli.md)
 2. [Using Angular Material](lessons/angular-material.md)
+3. [Structural Directives](lessons/structural-directives.md)
 
 ## Development server
 
