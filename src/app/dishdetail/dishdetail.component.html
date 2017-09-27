@@ -4,7 +4,7 @@
   fxLayout.xs="column"
   fxLayoutAlign.gt-md="center center"
   fxLayoutGap="10px"
-  fxLayoutGap.xs="0">
+  fxLayoutGap.xs="0" *ngIf="dish">
 
   <div fxFlex="40">
     <md-card>
@@ -25,7 +25,7 @@
       <md-list-item *ngFor="let comment of dish.comments">
         <h3 mdLine>{{ comment.comment }}</h3>
         <p mdLine>{{ comment.rating }} Stars</p>
-        <p mdLine>-- {{ comment.author }} {{ comment.date | date}}</p>
+        <p mdLine>-- {{ comment.author }} {{ comment.date | date }}</p>
       </md-list-item>
     </md-list>
   </div>
