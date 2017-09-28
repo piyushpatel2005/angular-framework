@@ -17,6 +17,7 @@ These lessons assume basic knowledge of JavaScript, TypeScript syntax and HTML a
 4. [Managing Classes](lessons/classes.md)
 5. [Data Binding](lessons/data-binding.md)
 6. [Services](lessons/services.md)
+7. [Routing](lessons/routing.md)
 
 ## Development server
 
