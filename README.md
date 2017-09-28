@@ -16,6 +16,7 @@ These lessons assume basic knowledge of JavaScript, TypeScript syntax and HTML a
 3. [Structural Directives](lessons/structural-directives.md)
 4. [Managing Classes](lessons/classes.md)
 5. [Data Binding](lessons/data-binding.md)
+6. [Services](lessons/services.md)
 
 ## Development server
 

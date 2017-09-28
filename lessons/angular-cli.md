@@ -50,9 +50,11 @@ Each component will have several files
  `.component.ts`: this is the component class written in TypeScript. I consider it as a controller for this component where all the properties and event-handlers exist.
 
  `.component.css`: this is the stylesheet for the component only.
- 
+
  `.component.spec.ts`: This is test spec file for the component.
 
  When we create new component, `.component.ts` file will include `@Component` declarator and this includes selector, that will be used as a tag. It also includes `templateUrl` which defines the template url for this component and styleUrls array that includes stylesheets for this component.
 
  For example, if you look at generated app, it includes `app-root` selector, which is part of index.html file in the root folder.
+
+ If you want to install additional styles or anything, you have to configure angular-cli.json file to include those styles. For example, when we include `font-awesome`, we need to include them in `angular-cli.json` file inside `styles` array. These configurations are with respect to index.html and not the root folder.
