@@ -12,11 +12,14 @@
           <h4>{{dish.name | uppercase}}</h4>
         </md-card-title>
       <img md-card-image src="{{ dish.image }}" alt="{{dish.name}}">
-      <md-card-content>{{dish.description}}</md-card-content>
-      <md-card-footer>
+      <md-card-content>
+        <p>{{dish.description}}</p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button (click)="goBack()">BACK</button>
         <button md-button>LIKE</button>
         <button md-button>SHARE</button>
-      </md-card-footer>
+      </md-card-actions>
     </md-card>
   </div>
   <div fxFlex="40">

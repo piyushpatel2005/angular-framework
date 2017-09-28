@@ -79,3 +79,57 @@ import { AppRoutingModule } from '../app-routing/app-routing.module.ts';
 ```html
 <a routerLink="/home">Home</a>
 ```
+
+- We can also apply `routerLinkActive` attribute to links and set it equal to a class that will be applied when this view is active.
+
+```html
+<a routerLink="/home" routerLinkActive="active">Home</a>
+<a routerLink="/menu" routerLinkActive="active">Menu</a>
+<!-- CSS stylesheet will have active class styles to make it appear as active -->
+```
+
+- We can also add router parameters using `dishdetail/:id` syntax where `id` will be passed as route parameter.
+
+In the path, we specify route object
+
+```typescript
+{path: 'dishdetail/:id', component: DishdetailComponent},
+```
+
+To make these kinds of route parameter URLs, we can add `routerLink` in which we can supply an additional `id`.
+
+```html
+<a *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">Link</a>
+```
+
+To retrieve these route params, we need to update component class.
+
+```typescript
+... ...
+import { DishService } from '../services/dish.service';
+
+import { Params, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+... ...
+export class DishdetailComponent implements OnInit {
+  dish: Dish;
+
+  // pass route in the constructor
+  // location service has a method to go back in the Browser history.
+  constructor(private dishservice: DishService,
+    private route: ActivatedRoute,
+    private location: Location) { }
+
+  ngOnInit() {
+    // retrieve id first so that it can be used to get specific dish
+    let id = +this.route.snapshot.params['id'];   // noet the + sign before this object.
+    this.dish = this.dishservice.getDish(id);
+  }
+
+  goBack(): void {
+    // use back method to go back to the previous page. This method  is assigned to click event in view.
+    this.location.back();
+  }
+}
+```
