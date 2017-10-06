@@ -1,12 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+
 import { MdToolbarModule } from '@angular/material';
 import { MdListModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MdGridListModule } from '@angular/material';
 import { MdCardModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
+import { MdDialogModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+import { MdCheckboxModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -21,6 +26,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { LeaderService } from './services/leader.service';
+import { LoginComponent } from './login/login.component';
 
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
 
@@ -33,7 +39,8 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +51,19 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     MdGridListModule,
     MdCardModule,
     MdButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    MdDialogModule,
+    MdInputModule,
+    MdCheckboxModule
   ],
   providers: [
     DishService,
     PromotionService,
     LeaderService
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
