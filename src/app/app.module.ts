@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MdToolbarModule } from '@angular/material';
 import { MdListModule } from '@angular/material';
@@ -12,6 +13,8 @@ import { MdButtonModule } from '@angular/material';
 import { MdDialogModule } from '@angular/material';
 import { MdInputModule } from '@angular/material';
 import { MdCheckboxModule } from '@angular/material';
+import { MdSlideToggleModule } from '@angular/material';
+import { MdSelectModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -55,7 +58,10 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     FormsModule,
     MdDialogModule,
     MdInputModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdSlideToggleModule,
+    MdSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     DishService,
