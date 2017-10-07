@@ -4,10 +4,10 @@
   fxLayout.xs="column"
   fxLayoutAlign.gt-md="center center"
   fxLayoutGap="10px"
-  fxLayoutGap.xs="0" *ngIf="dish">
+  fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-    <md-card>
+    <md-card *ngIf="dish">
         <md-card-title>
           <h4>{{dish.name | uppercase}}</h4>
         </md-card-title>
@@ -23,7 +23,7 @@
     </md-card>
   </div>
   <div fxFlex="40">
-    <md-list>
+    <md-list *ngIf="dish">
       <h3 mdSubHeader>Comments</h3>
       <md-list-item *ngFor="let comment of dish.comments">
         <h3 mdLine>{{ comment.comment }}</h3>
@@ -31,5 +31,9 @@
         <p mdLine>-- {{ comment.author }} {{ comment.date | date }}</p>
       </md-list-item>
     </md-list>
+  </div>
+  <div [hidden]="dish">
+    <md-spinner></md-spinner>
+    <h4>Loading... Please wait!</h4>
   </div>
 </div>

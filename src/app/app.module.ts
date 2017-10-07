@@ -15,6 +15,7 @@ import { MdInputModule } from '@angular/material';
 import { MdCheckboxModule } from '@angular/material';
 import { MdSlideToggleModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
+import { MdProgressSpinnerModule } from '@angular/material';
 
 import 'hammerjs';
 
@@ -61,6 +62,7 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     MdCheckboxModule,
     MdSlideToggleModule,
     MdSelectModule,
+    MdProgressSpinnerModule,
     ReactiveFormsModule
   ],
   providers: [
