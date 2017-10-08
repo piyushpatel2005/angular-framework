@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { MdToolbarModule } from '@angular/material';
 import { MdListModule } from '@angular/material';
@@ -32,6 +33,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { baseURL } from './shared/baseurl';
 
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
 
@@ -65,12 +68,15 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     MdSliderModule,
     MdSelectModule,
     MdProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     DishService,
     PromotionService,
-    LeaderService
+    LeaderService,
+    {provide: 'BaseURL', useValue: baseURL},
+    ProcessHttpmsgService
   ],
   entryComponents: [
     LoginComponent

@@ -35,6 +35,12 @@ Move to the folder to run json-server. To run the server use:
 
 This server will serve the information from db.json and it will be available on the urls mentioned in the console. It usually uses port 3000.
 
+In order to serve images from json-server, use command:
+
+`json-server --watch db.json -d 2000`
+
+It delays response by 2000ms.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
