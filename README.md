@@ -23,6 +23,18 @@ These lessons assume basic knowledge of JavaScript, TypeScript syntax and HTML a
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+This application uses `json-server`. So, install json-server globally using:
+
+`npm install -g json-server`
+
+Put the data file `db.json` into json-server folder.
+
+Move to the folder to run json-server. To run the server use:
+
+`json-server --watch db.json`
+
+This server will serve the information from db.json and it will be available on the urls mentioned in the console. It usually uses port 3000.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -42,3 +54,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
