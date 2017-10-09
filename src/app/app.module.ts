@@ -5,6 +5,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Restangular, RestangularModule } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 import { MdToolbarModule } from '@angular/material';
 import { MdListModule } from '@angular/material';
@@ -69,7 +71,8 @@ import { AppRoutingModule } from '../app/app-routing/app-routing.module';
     MdSelectModule,
     MdProgressSpinnerModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [
     DishService,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Restangular, RestangularModule } from 'ngx-restangular';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
@@ -16,26 +17,21 @@ import { Dish } from '../shared/dish';
 @Injectable()
 export class DishService {
 
-  constructor(private http: Http,
-              private processHttpmsgService: ProcessHttpmsgService,
+  constructor(private restangular: Restangular,
+              private processHttpmsgService: ProcessHttpmsgService
               ) { }
 
   getDishes(): Observable<Dish[]> {
-    return this.http.get(baseURL + 'dishes')
-                    .map(res => { return this.processHttpmsgService.extractData(res); })
-                    .catch(error => this.processHttpmsgService.handleError(error));
+    return this.restangular.all('dishes').getList();
   }
 
   getDish(id: number): Observable<Dish> {
-    return this.http.get(baseURL + 'dishes/' + id)
-      .map(res => this.processHttpmsgService.extractData(res))
-      .catch(error => this.processHttpmsgService.handleError(error));
+    return this.restangular.one('dishes', id).get();
   }
 
   getFeaturedDish(): Observable<Dish> {
-    return  this.http.get(baseURL + 'dishes?featured=true')
-      .map(res => this.processHttpmsgService.extractData(res)[0])
-      .catch(error => this.processHttpmsgService.handleError(error));
+    return  this.restangular.all('dishes').getList({featured: true})
+      .map(dishes => dishes[0]);
   }
 
   getDishIds(): Observable<number[]> {
