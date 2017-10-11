@@ -7,7 +7,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user = {remember: false};
+  user = {remember: false, username: '', password: ''};
 
   constructor(public dialogRef: MdDialogRef<LoginComponent>) { }
 
