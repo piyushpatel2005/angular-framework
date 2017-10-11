@@ -36,6 +36,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { FeedbackService } from './services/feedback.service';
 import { baseURL } from './shared/baseurl';
 
 import { AppRoutingModule } from '../app/app-routing/app-routing.module';
@@ -81,7 +82,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     PromotionService,
     LeaderService,
     {provide: 'BaseURL', useValue: baseURL},
-    ProcessHttpmsgService
+    ProcessHttpmsgService,
+    FeedbackService
   ],
   entryComponents: [
     LoginComponent
