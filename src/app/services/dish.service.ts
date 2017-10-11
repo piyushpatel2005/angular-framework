@@ -10,15 +10,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { baseURL } from '../shared/baseurl';
-import { ProcessHttpmsgService } from './process-httpmsg.service';
 
 import { Dish } from '../shared/dish';
 
 @Injectable()
 export class DishService {
 
-  constructor(private restangular: Restangular,
-              private processHttpmsgService: ProcessHttpmsgService
+  constructor(private restangular: Restangular
               ) { }
 
   getDishes(): Observable<Dish[]> {
