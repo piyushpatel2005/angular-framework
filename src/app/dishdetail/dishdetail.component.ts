@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Dish } from '../shared/dish';
@@ -28,6 +28,8 @@ export class DishdetailComponent implements OnInit {
   errMess: string;
 
   visibility = 'shown';
+
+  @ViewChild('f') commentFormDirective;
 
   commentForm: FormGroup;
   comment: Comment;
@@ -110,6 +112,7 @@ export class DishdetailComponent implements OnInit {
       comment: '',
       date: ''
     });
+    this.commentFormDirective.resetForm();
     this.dishcopy.save()
       .subscribe(dish => { this.dish = dish; console.log(this.dish); });
   }

@@ -225,15 +225,6 @@
     }
   ],
   "feedback": [
-    {
-      "firstname": "Piyush",
-      "lastname": "Patel",
-      "telnum": "12334353",
-      "email": "abc@example.com",
-      "agree": true,
-      "contacttype": "Email",
-      "message": "Great hotel",
-      "id": 1
-    }
+    
   ]
 }

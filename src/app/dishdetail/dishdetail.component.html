@@ -43,7 +43,7 @@
         <p mdLine>-- {{ commentForm.value.author }}</p>
       </md-list-item>
     </md-list>
-    <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" #f="ngForm">
       <p>
       <md-input-container class="full-width" dividerColor="{{ (formErrors.author) ? 'warn' : 'primary'}}">
         <input mdInput type="text" formControlName="author" placeholder="Name" required>

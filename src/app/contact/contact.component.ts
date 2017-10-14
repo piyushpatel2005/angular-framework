@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import 'rxjs/add/operator/delay';
 
 import { Feedback, ContactType } from '../shared/feedback';
 import { FeedbackService } from '../services/feedback.service';
 
-import { flyInOut } from '../animations/app.animation';
+import { flyInOut, expand } from '../animations/app.animation';
 
 @Component({
   selector: 'app-contact',
@@ -15,14 +16,19 @@ import { flyInOut } from '../animations/app.animation';
     'style': 'display: block'
   },
   animations: [
-    flyInOut()
+    flyInOut(),
+    expand()
   ]
 })
 export class ContactComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedback: Feedback;
+  feedbackcopy: Feedback;
   contactType = ContactType;
+  feedbackErr: string;
+  submitted = false;
+  @ViewChild('f') feedbackFormDirective;
 
   formErrors = {
     firstname: '',
@@ -43,11 +49,11 @@ export class ContactComponent implements OnInit {
       maxlength: 'First Name cannot be more than 25 characters long.'
     },
     telnum: {
-      required: 'Tel. Number is required',
+      required: 'Tel. Number is required.',
       pattern: 'Tel. Number must contain only numbers.'
     },
     email: {
-      required: 'Email is required',
+      required: 'Email is required.',
       email: 'Email is not in valid format.'
     }
   };
@@ -95,16 +101,18 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     this.feedback = this.feedbackForm.value;
     console.log(this.feedback);
-    this.feedbackService.submitFeedback(this.feedback);
-    this.feedbackForm.reset({
-      firstname: '',
-      lastname: '',
-      telnum: '',
-      email: '',
-      agree: false,
-      contacttype: 'None',
-      message: ''
-    });
+    this.submitted = true;
+    this.feedbackService.submitFeedback(this.feedback)
+      .subscribe(feedback => {
+        this.feedbackcopy = feedback;
+        this.submitted = false;
+        setTimeout(() => { this.feedbackcopy = null; }, 5000);
+        this.feedbackForm.reset({
+        });
+        this.feedbackFormDirective.resetForm();
+      },
+        errmess => this.feedbackErr = errmess);
+    this.feedbackcopy = null;
   }
 
 }
